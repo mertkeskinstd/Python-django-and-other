@@ -1,0 +1,39 @@
+{%     extends 'base.html'   %}
+
+
+{%     block content   %}
+
+
+    <h1>weather reports</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, incidunt!</p>
+
+    <!-- jinja syntax-->
+    
+    <h2> istanbul: {{istanbul}}</h2>
+    <br><br>
+    <h2> amsterdam:{{amsterdam}} </h2>
+    
+    <br><br>
+    <h2>rome:morning:{{rome.morning}},evening:{{rome.evening}} </h2>
+    <br><br>
+    
+
+    {% if user_premium  %}
+        {% for item in paris  %}
+            {% if item < 6  %}
+                <h2><p>paris:too cold </p></h2>
+            {% else %}
+            <h2><p>paris:{{item}} </p></h2>
+            {% endif %}
+        {% endfor %}
+        
+    {% endif %}
+<br><br>
+
+<h2> {{test | upper}} </h2>
+<br><br>
+
+<!-- <h2><a href="{% url 'template_app:index'   %}">go link</a></h2> -->
+
+
+{%     endblock   %}

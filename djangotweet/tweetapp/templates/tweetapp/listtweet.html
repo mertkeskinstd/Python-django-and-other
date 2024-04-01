@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+
+<div class="mrt" >
+{%for tweet in tweets%}
+    <div class="card" >
+        <div class="card-body">
+            <h5 class="card-title">{{tweet.username}}</h5>
+
+            <p class="card-text">{{tweet.message}}</p>
+
+        </div>
+        <div>
+            {%if tweet.username == user%}
+            <a class="btn btn-primary" href="{% url 'tweetapp:deletetweet' id=tweet.id %}">Delete
+                tweet</a>
+            {%endif%}
+        </div>
+
+    </div>
+    {%endfor%}
+</div>
+{% endblock %}

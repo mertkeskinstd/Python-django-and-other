@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>addtweetbymodelform page</h1>
+<div class="">
+    <form action="" method="POST" class="content">
+        {% csrf_token%}
+
+    {%for field in form%}
+
+    <div class="mb-3 ker">
+        {{field.label_tag}}
+        {{field}}
+    </div>
+
+    {%endfor%}
+    <button class="custom-btn btn-16"><span>Tweet</span></button>
+    <p style="font-family: 'Megrim', cursive;">
+    </form>
+</div>
+{% endblock %}

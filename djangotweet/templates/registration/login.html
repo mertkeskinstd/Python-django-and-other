@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+{%block content%}
+{%if form.errors%}
+<p>your username and pasword did'nt match.Please try again.</p>
+{%endif%}
+
+
+{%if user.is_authenticated %}
+<h2 style="margin-top: 60px;">welcome {{user.username}} </h2>
+{%else%}
+
+<div id="login"
+    style="margin-top: 80px; padding: 20px; border: 4px solid orange; border-radius: 20px; display: grid; justify-content: center; background-color: green;">
+    <form method="POST" action="{%url 'login'%}">
+        {%csrf_token%}
+        {%for field in form%}
+
+        <div class="mb-3 ker">
+            {{field.label_tag}}
+            {{field}}
+        </div>
+
+        {%endfor%}
+
+        <button type="submit" class="btn btn-primary"
+            style="display: block; padding: 6px;margin: 30px 0; margin-left: 30px;">LOGİN</button>
+</div>
+
+</form>
+{%endif%}
+{%endblock%}
